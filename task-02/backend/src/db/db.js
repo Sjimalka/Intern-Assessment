@@ -8,9 +8,14 @@ let pool = null;
 let isPgConnected = false;
 
 // Get connection config options from environment
+// Get connection config options from environment
 function getDbConfig() {
   if (process.env.DATABASE_URL) {
-    return { connectionString: process.env.DATABASE_URL };
+    const isLocal = process.env.DATABASE_URL.includes('localhost') || process.env.DATABASE_URL.includes('127.0.0.1');
+    return {
+      connectionString: process.env.DATABASE_URL,
+      ssl: isLocal ? false : { rejectUnauthorized: false },
+    };
   }
   return {
     host: process.env.PGHOST || 'localhost',
@@ -18,6 +23,7 @@ function getDbConfig() {
     user: process.env.PGUSER || 'postgres',
     password: process.env.PGPASSWORD || 'postgres',
     database: process.env.PGDATABASE || 'serendib_store',
+    ssl: process.env.PGSSL === 'true' ? { rejectUnauthorized: false } : false,
   };
 }
 
@@ -33,14 +39,17 @@ async function ensureDatabaseExists() {
   if (config.connectionString) {
     const url = new URL(config.connectionString);
     url.pathname = '/postgres';
-    maintenanceConfig = { connectionString: url.toString() };
+    maintenanceConfig = {
+      connectionString: url.toString(),
+      ssl: config.ssl,
+    };
   } else {
     maintenanceConfig = { ...config, database: 'postgres' };
   }
 
   const client = new Client({
     ...maintenanceConfig,
-    connectionTimeoutMillis: 3000
+    connectionTimeoutMillis: 5000,
   });
 
   try {
@@ -66,8 +75,8 @@ function getPool() {
     const config = getDbConfig();
     pool = new Pool({
       ...config,
-      connectionTimeoutMillis: 3500,
-      idleTimeoutMillis: 10000,
+      connectionTimeoutMillis: 10000,
+      idleTimeoutMillis: 30000,
     });
 
     pool.on('error', (err) => {

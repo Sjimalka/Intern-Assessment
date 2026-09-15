@@ -1,6 +1,8 @@
-// API helper methods for communicating with the backend
-
-const API_BASE = '/api';
+// Determine API base URL:
+// In production (Vercel), point to the Render backend via VITE_API_URL
+// In local dev, fallback to '/api' which Vite proxies to http://localhost:5000
+const rawBase = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE = rawBase ? `${rawBase.replace(/\/$/, '')}/api` : '/api';
 
 /**
  * Helper to handle fetch responses and throw friendly errors
