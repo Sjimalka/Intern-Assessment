@@ -1,0 +1,218 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Ceylon Silver Tips Single Estate White Tea",
+    "category": "Tea & Spices",
+    "price": 4850,
+    "stock": 14,
+    "rating": 4.9,
+    "reviewsCount": 86,
+    "badge": "Bestseller",
+    "description": "Handpicked at sunrise from high-altitude Nuwara Eliya misty hills. Pure sun-dried silver buds offering a subtle, delicate floral aroma and rejuvenating antioxidant profile.",
+    "features": [
+      "100% Single Origin Pure Ceylon White Tea",
+      "Hand-harvested delicate buds",
+      "Packed in airtight embossed tin canister (100g)",
+      "Naturally low in caffeine & rich in antioxidants"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-2",
+    "name": "Organic Ceylon True Cinnamon Quills (Alba Grade)",
+    "category": "Tea & Spices",
+    "price": 2400,
+    "stock": 25,
+    "rating": 4.8,
+    "reviewsCount": 112,
+    "badge": "Organic Certified",
+    "description": "Authentic Cinnamomum zeylanicum harvested from southern coastal plantations of Sri Lanka. Alba grade is the slenderest, most fragrant quill with sweet woody warmth.",
+    "features": [
+      "Certified 100% Pure Ceylon Alba Grade",
+      "Ultra-low coumarin content (safe for daily intake)",
+      "Handcrafted rolls from organic forest gardens",
+      "Net weight: 200g sealed pouch"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-3",
+    "name": "Artisanal Hand-Carved Coconut Shell Bowls (Set of 4)",
+    "category": "Handicrafts",
+    "price": 3600,
+    "stock": 8,
+    "rating": 4.7,
+    "reviewsCount": 49,
+    "badge": "Eco Friendly",
+    "description": "Upcycled natural coconut shells polished with virgin coconut oil by traditional village artisans in Kurunegala. Perfect for smoothie bowls, salads, and mindful dining.",
+    "features": [
+      "100% natural, biodegradable and chemical-free",
+      "Finished with organic virgin coconut oil polish",
+      "Includes 4 hand-carved coconut wood spoons",
+      "Durable, lightweight and sustainable"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-4",
+    "name": "Hand-Dyed Traditional Sri Lankan Batik Silk Shirt",
+    "category": "Fashion",
+    "price": 8900,
+    "stock": 6,
+    "rating": 4.9,
+    "reviewsCount": 38,
+    "badge": "Limited Edition",
+    "description": "An exquisite celebration of Sri Lankan batik heritage. Featuring wax-resist floral leaf motifs dipped in natural moss and emerald dyes on breathable pure cotton-silk.",
+    "features": [
+      "Authentic wax-resist batik artisan crafted in Matale",
+      "Soft breathable blend of 70% silk and 30% fine cotton",
+      "Coconut shell natural button closures",
+      "Relaxed resort-style tailored fit"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-5",
+    "name": "Natural Herbal Ayurvedic Rejuvenation Spa Box",
+    "category": "Wellness",
+    "price": 6200,
+    "stock": 18,
+    "rating": 4.9,
+    "reviewsCount": 64,
+    "badge": "Ayurveda Pure",
+    "description": "A curated therapy collection infused with native King Coconut oil, Gotukola, Sandalwood, and Lemongrass for total stress relief and radiant skin.",
+    "features": [
+      "Contains herbal body elixir oil, botanical face mist, and scrub",
+      "Formulated according to ancient Hela Veda herbal recipes",
+      "Cruelty-free, vegan and free from parabens",
+      "Beautiful handmade palm leaf woven gift basket"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1608248597359-009a06148332?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-6",
+    "name": "Handcrafted Terracotta Clay Water Carafe & Tumbler",
+    "category": "Handicrafts",
+    "price": 4150,
+    "stock": 4,
+    "rating": 4.6,
+    "reviewsCount": 29,
+    "badge": "Rare Find",
+    "description": "Wheel-thrown earthenware clay carafe crafted by master potters of Kelaniya. Naturally chills and mineralizes drinking water through evaporative micro-cooling.",
+    "features": [
+      "Natural unglazed terracotta rich in minerals",
+      "Passive cooling lowers water temperature by 3-5°C",
+      "Carafe volume: 1.2 Liters + matching 300ml cup",
+      "Sustainable zero-plastic alternative"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-7",
+    "name": "Sinharaja Rainforest Raw Forest Bee Honey (500g)",
+    "category": "Tea & Spices",
+    "price": 3100,
+    "stock": 12,
+    "rating": 4.8,
+    "reviewsCount": 92,
+    "badge": "Raw & Unfiltered",
+    "description": "Wild honey ethically harvested from blooming indigenous flora at the edge of the UNESCO Sinharaja Biosphere. Deep amber color with rich floral complexity.",
+    "features": [
+      "100% unpasteurized raw forest honey",
+      "Retains natural bee pollen and enzymes",
+      "Sustainably harvested by indigenous community cooperatives",
+      "Glass jar with tamper-proof wooden cork seal"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-8",
+    "name": "Highland Arabica Single Origin Coffee Beans (Dark Roast)",
+    "category": "Tea & Spices",
+    "price": 3450,
+    "stock": 20,
+    "rating": 4.7,
+    "reviewsCount": 57,
+    "badge": "Fresh Roast",
+    "description": "Grown in shade at 1,400m altitude in Kotmale. Drum-roasted in small batches in Colombo to reveal notes of dark chocolate, roasted macadamia, and sweet molasses.",
+    "features": [
+      "100% Highland Arabica specialty coffee",
+      "Medium-dark roast with silky crema profile",
+      "One-way degassing valve bag (250g)",
+      "Ethically direct-trade sourced from smallholder farmers"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-9",
+    "name": "Acoustic Bamboo Wireless Desktop Speaker",
+    "category": "Tech & Lifestyle",
+    "price": 14500,
+    "stock": 5,
+    "rating": 4.8,
+    "reviewsCount": 33,
+    "badge": "New Arrival",
+    "description": "A harmonious blend of sustainable natural bamboo and modern hi-fi audio. Delivers 360-degree room-filling acoustic sound with 16 hours of continuous battery life.",
+    "features": [
+      "Solid carved natural bamboo resonance chamber",
+      "Bluetooth 5.3 + 3.5mm AUX input support",
+      "Dual 10W neodymium drivers + passive bass radiator",
+      "Fast USB-C charging with 4000mAh lithium battery"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-10",
+    "name": "Handwoven Palmyrah & Canvas Weekender Duffle Bag",
+    "category": "Fashion",
+    "price": 11800,
+    "stock": 7,
+    "rating": 4.9,
+    "reviewsCount": 41,
+    "badge": "Artisan Made",
+    "description": "Crafted from hardy northern palmyrah palm leaves and heavy-duty organic army duck canvas. Built for coastal getaways, tropical adventures, and daily rugged use.",
+    "features": [
+      "Handwoven reinforced palmyrah base panel",
+      "Water-resistant 16oz cotton canvas exterior",
+      "Full grain vegetable-tanned leather carry handles",
+      "Complies with regional airline carry-on dimensions"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-11",
+    "name": "Cold-Pressed King Coconut Hair & Body Elixir (250ml)",
+    "category": "Wellness",
+    "price": 2850,
+    "stock": 22,
+    "rating": 4.8,
+    "reviewsCount": 78,
+    "badge": "Popular",
+    "description": "Extracted from golden Sri Lankan King Coconuts (Thambili). Naturally rich in essential electrolytes, amino acids, and vitamin E for deep nourishment.",
+    "features": [
+      "100% pure raw cold-pressed King Coconut oil",
+      "Infused with organic vetiver roots and jasmine buds",
+      "Lightweight, non-greasy rapid absorption",
+      "Amber glass dropper dispenser"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "prod-12",
+    "name": "Smart Solar Power Bank with Ambient Camp Lantern",
+    "category": "Tech & Lifestyle",
+    "price": 12900,
+    "stock": 9,
+    "rating": 4.7,
+    "reviewsCount": 51,
+    "badge": "Adventure Ready",
+    "description": "High-efficiency monocrystalline solar power pack with 20,000mAh capacity, dual fast USB-C output, and an integrated dimmable warm ambient camping lantern.",
+    "features": [
+      "20,000mAh flight-safe lithium polymer cell",
+      "IP67 dust and splash-proof rugged silicone casing",
+      "22.5W Power Delivery fast charging support",
+      "Integrated 3-level warm LED lantern and SOS strobe"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=800&q=80"
+  }
+]
