@@ -1,0 +1,11 @@
+{
+  "name": "pos-inventory-concurrency-system",
+  "version": "1.0.0",
+  "description": "High-Performance POS System with Stock Reservation, Concurrency Protection, and Mock Payment Gateway",
+  "scripts": {
+    "start:backend": "node backend/src/server.js",
+    "dev:backend": "node --watch backend/src/server.js",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "test:concurrency": "node backend/test-concurrency.js"
+  }
+}
