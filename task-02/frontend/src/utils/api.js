@@ -8,6 +8,14 @@ const API_BASE = rawBase ? `${rawBase.replace(/\/$/, '')}/api` : '/api';
  * Helper to handle fetch responses and throw friendly errors
  */
 async function handleResponse(response) {
+  const contentType = response.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    if (!response.ok) {
+      throw new Error(`Server returned HTTP ${response.status} (${response.statusText || 'Error'}). Check backend server.`);
+    }
+    throw new Error('API returned HTML instead of JSON. Ensure VITE_API_URL is configured in Vercel pointing to your Render backend URL.');
+  }
+
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
     const errorMsg = data.error || data.message || `Request failed with status ${response.status}`;

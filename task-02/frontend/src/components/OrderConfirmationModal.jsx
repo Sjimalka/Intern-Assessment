@@ -4,9 +4,7 @@ import React from 'react';
 import { CheckCircle2, ShoppingBag, History, ArrowRight, ShieldCheck, MapPin, Copy } from 'lucide-react';
 
 export default function OrderConfirmationModal({ order, onClose, onOpenOrders }) {
-  if (!order) return null;
-
-  // Close modal on Escape key
+  // Close modal on Escape key (Hook must be at top level before early returns)
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -14,6 +12,8 @@ export default function OrderConfirmationModal({ order, onClose, onOpenOrders })
     if (order) window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [order, onClose]);
+
+  if (!order) return null;
 
   return (
     <div

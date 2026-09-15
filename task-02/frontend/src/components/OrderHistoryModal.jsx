@@ -27,20 +27,7 @@ export default function OrderHistoryModal({
   const [cancellationReason, setCancellationReason] = useState('Customer changed mind');
   const [refundAlert, setRefundAlert] = useState(null);
 
-  if (!isOpen) return null;
-
-  const handleConfirmCancel = async () => {
-    if (!selectedOrderToCancel) return;
-    try {
-      const res = await onCancelOrder(selectedOrderToCancel.id, cancellationReason);
-      setRefundAlert(res.message);
-      setSelectedOrderToCancel(null);
-    } catch (err) {
-      alert(err.message || 'Failed to cancel order');
-    }
-  };
-
-  // Close on Escape key
+  // Close on Escape key (Hook must be at top level)
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -54,6 +41,19 @@ export default function OrderHistoryModal({
     if (isOpen) window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, selectedOrderToCancel, onClose]);
+
+  if (!isOpen) return null;
+
+  const handleConfirmCancel = async () => {
+    if (!selectedOrderToCancel) return;
+    try {
+      const res = await onCancelOrder(selectedOrderToCancel.id, cancellationReason);
+      setRefundAlert(res.message);
+      setSelectedOrderToCancel(null);
+    } catch (err) {
+      alert(err.message || 'Failed to cancel order');
+    }
+  };
 
   return (
     <div

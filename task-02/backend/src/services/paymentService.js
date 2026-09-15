@@ -41,7 +41,8 @@ async function processPayment({
   // Fallback: in-memory idempotency check
   if (idempotencyKey && idempotencyStore.has(idempotencyKey)) {
     const cached = idempotencyStore.get(idempotencyKey);
-    if (cached.status === 'PENDING') {
+    // If marked PENDING more than 10 seconds ago, consider it expired so user can retry
+    if (cached.status === 'PENDING' && Date.now() - (cached.timestamp || 0) < 10000) {
       console.log(`[Payment] Idempotency conflict: Key ${idempotencyKey} is still processing.`);
       return {
         isDuplicate: true,
@@ -50,11 +51,13 @@ async function processPayment({
       };
     }
 
-    console.log(`[Payment] Idempotent hit: Returning cached result for key ${idempotencyKey}.`);
-    return {
-      ...cached.response,
-      isDuplicate: true
-    };
+    if (cached.status === 'COMPLETED') {
+      console.log(`[Payment] Idempotent hit: Returning cached result for key ${idempotencyKey}.`);
+      return {
+        ...cached.response,
+        isDuplicate: true
+      };
+    }
   }
 
   // Mark key as PENDING in memory while processing

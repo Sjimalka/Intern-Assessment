@@ -47,6 +47,21 @@ export default function CheckoutModal({
     notes: 'Please leave at the reception desk.',
   });
 
+  // Close modal when Escape key is pressed (Hook must be at top level)
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   // Subtotal & Shipping calculation in LKR
@@ -73,21 +88,6 @@ export default function CheckoutModal({
       paymentDetails: cardDetails,
     });
   };
-
-  // Close modal when Escape key is pressed
-  React.useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
 
   return (
     <div

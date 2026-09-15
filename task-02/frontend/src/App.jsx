@@ -290,6 +290,9 @@ export default function App() {
           quantity: item.quantity,
         }));
         const reserveRes = await reserveStock(reservationItems, 600);
+        if (!reserveRes || !reserveRes.reservation) {
+          throw new Error(reserveRes?.error || 'Could not reserve stock for checkout. Please check item availability.');
+        }
         currentReservation = reserveRes.reservation;
         setActiveReservation(reserveRes.reservation);
         setReservationSecondsLeft(reserveRes.reservation.ttlSeconds);
@@ -310,7 +313,7 @@ export default function App() {
       const res = await submitPaymentAndOrder(orderPayload);
 
       // Payment succeeded!
-      if (res.success && res.order) {
+      if (res && res.success && res.order) {
         setConfirmedOrder(res.order);
         setActiveReservation(null);
         setCart([]); // Clear cart
@@ -320,17 +323,16 @@ export default function App() {
         loadProducts();
         await loadOrders();
         showToast('🎉 Order placed successfully! Stock committed.');
+      } else {
+        throw new Error(res?.error || res?.message || 'Payment could not be confirmed. Please try again.');
       }
     } catch (err) {
       console.warn('Payment failed/stalled:', err.message);
       setPaymentError(err.message || 'Payment was declined or timed out.');
 
-      // In failure or timeout, the reservation is preserved so user can retry!
-      // Generate a fresh idempotency key for any future retry
-      if (simulationMode !== 'SUCCESS') {
-        const retryKey = 'idem_retry_' + Math.random().toString(36).substring(2, 9);
-        setIdempotencyKey(retryKey);
-      }
+      // Refresh idempotency key on any failure so user can retry immediately
+      const retryKey = 'idem_retry_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
+      setIdempotencyKey(retryKey);
     } finally {
       setIsProcessingPayment(false);
     }
