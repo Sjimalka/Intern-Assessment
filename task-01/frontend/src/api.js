@@ -1,5 +1,10 @@
 // helper to talk to backend api
-const BASE_URL = '/api';
+// in local dev with vite proxy, BASE_URL defaults to '/api'
+// in production (e.g. Vercel), set VITE_API_URL to your deployed backend URL (e.g. https://your-backend.onrender.com)
+const envApiUrl = import.meta.env.VITE_API_URL;
+const BASE_URL = envApiUrl
+  ? (envApiUrl.endsWith('/api') ? envApiUrl : `${envApiUrl.replace(/\/$/, '')}/api`)
+  : '/api';
 
 async function request(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;

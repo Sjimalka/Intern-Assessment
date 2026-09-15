@@ -271,13 +271,21 @@ export default function App() {
         onOpenMobileCart={() => setIsMobileCartOpen(true)}
       />
 
-      {/* database connection warning banner if PostgreSQL is unreachable */}
+      {/* database connection warning banner if PostgreSQL or backend is unreachable */}
       {dbError && (
         <div className="bg-amber-50 border-b border-amber-200 px-4 py-3 text-xs text-amber-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-2xs">
           <div className="flex items-center gap-2">
             <AlertCircle className="w-4 h-4 text-amber-700 shrink-0" />
             <span>
-              <strong>Database Notice:</strong> Unable to connect to PostgreSQL ({dbError}). Please ensure PostgreSQL is running or verify your credentials in <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono text-[11px] font-bold">backend/.env</code>.
+              {dbError.includes('404') ? (
+                <>
+                  <strong>Backend Connection Error (404):</strong> The frontend cannot reach the backend API. If running on Vercel, deploy your backend (e.g. on Render) and add <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono text-[11px] font-bold">VITE_API_URL</code> to your Vercel Environment Variables.
+                </>
+              ) : (
+                <>
+                  <strong>Database Notice:</strong> Unable to connect to PostgreSQL ({dbError}). Please ensure PostgreSQL is running or verify your credentials in <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono text-[11px] font-bold">backend/.env</code>.
+                </>
+              )}
             </span>
           </div>
           <button

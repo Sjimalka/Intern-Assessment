@@ -19,12 +19,20 @@ if (!fs.existsSync(dataDir)) {
 const sqlitePath = path.join(dataDir, 'pos.db');
 
 // configure postgresql connection from environment
+const isCloudDb = process.env.DATABASE_URL && (
+  process.env.PGSSL === 'true' ||
+  process.env.DATABASE_URL.includes('neon.tech') ||
+  process.env.DATABASE_URL.includes('supabase.co') ||
+  process.env.DATABASE_URL.includes('render.com') ||
+  process.env.DATABASE_URL.includes('railway.app') ||
+  process.env.DATABASE_URL.includes('sslmode=require') ||
+  process.env.NODE_ENV === 'production'
+);
+
 const connectionConfig = process.env.DATABASE_URL
   ? {
       connectionString: process.env.DATABASE_URL,
-      ssl: process.env.PGSSL === 'true' || process.env.DATABASE_URL.includes('neon.tech') || process.env.DATABASE_URL.includes('supabase.co')
-        ? { rejectUnauthorized: false }
-        : false,
+      ssl: isCloudDb ? { rejectUnauthorized: false } : false,
     }
   : {
       host: process.env.PGHOST || 'localhost',
