@@ -1,3 +1,4 @@
+#POSS SYSTEM LINK =https://intern-assessment-47ntzsu7i-sjhasinduimalka-gmailcoms-projects.vercel.app/
 # ApexPOS: High-Performance Point-of-Sale & Inventory Concurrency System
 
 ApexPOS is an enterprise point-of-sale and inventory management application built to handle high-concurrency order creation, atomic stock reservations with automated 5-minute expiry, mock payment gateway simulations (success, failure, timeout), duplicate payment idempotency, and full order lifecycle state transitions backed by **PostgreSQL**.
